@@ -1,0 +1,13 @@
+services:
+  autogen-studio:
+    container_name: autogen-studio
+    env_file: .env
+    build:
+      context: ./
+      args:
+        OPENAI_API_KEY: ${OPENAI_API_KEY}
+      dockerfile: ./Dockerfile
+    image: autogen-studio
+    init: true
+    ports:
+      ["8081:8081"]
